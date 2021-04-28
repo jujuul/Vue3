@@ -1,0 +1,21 @@
+<template>
+  <h2>App父级组件</h2>
+  <button @click="isShow = !isShow">切换显示</button>
+  <hr />
+  <Child v-if="isShow" />
+</template>
+<script lang="ts">
+// 引入子级组件Child
+import Child from "./components/Child";
+import { defineComponent, ref } from "vue";
+export default defineComponent({
+  name: "App",
+  components: { Child },
+  setup() {
+    const isShow = ref(true);
+    return {
+      isShow,
+    };
+  },
+});
+</script>
